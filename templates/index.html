@@ -7,13 +7,27 @@
   </head>
   <body>
     <h1>{{ hello }}</h1>
-
-    <a href="/postform/">Submit a boast or a roast</a>
+    <div>
+      <a href="/boast/">See all the Boasts!</a>
+    </div>
+    <div>
+      <a href="/roast/">See all the Roasts!</a>
+    </div>
+    <div>
+      <a href="/postform/">Submit a boast or a roast</a>
+    </div>
     <div>
       {% for post in post_list %}
 
       <h3>{{post.content}}</h3>
-      <h2>{{ post.post_time}}</h2>
+      <h4>{{ post.post_time}}</h4>
+      <div>
+        {% if post.boast_or_roast %}
+        <h6>Boast</h6>
+        {% elif not post.boast_or_roast %}
+        <h6>Roast</h6>
+        {% endif %}
+      </div>
 
       {% endfor %}
     </div>

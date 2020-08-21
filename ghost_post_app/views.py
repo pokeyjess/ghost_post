@@ -4,7 +4,7 @@ from ghost_post_app.forms import PostForm
 
 def index(request):
     post_list = Posts.objects.all().order_by('-post_time')
-    return render(request, "index.html", {"post_list": post_list, "hello": "Hello"})
+    return render(request, "index.html", {"post_list": post_list, "hello": "Boast or Roast"})
 
 def post_form_view(request):
     if request.method == "POST":
@@ -16,3 +16,11 @@ def post_form_view(request):
         
     form = PostForm()
     return render(request, "post_form.html", {"form": form})
+
+def boast(request):
+    post_list = Posts.objects.filter(boast_or_roast=True).order_by('-post_time')
+    return render(request, "boast.html", {"post_list": post_list})
+
+def roast(request):
+    post_list = Posts.objects.filter(boast_or_roast=False).order_by('-post_time')
+    return render(request, "roast.html", {"post_list": post_list})

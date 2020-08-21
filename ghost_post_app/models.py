@@ -9,13 +9,11 @@ class Posts(models.Model):
     post_time = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
+        return f"{self.content} - {self.post_time}"
         if self.boast_or_roast == "Boast":
             return True
         else:
             return False
-
-    def message(self):
-        return f"{self.content} - {self.post_time}"
 
     def votes(self):
         return self.up_votes - self.down_votes
