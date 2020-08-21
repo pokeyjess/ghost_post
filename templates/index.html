@@ -9,18 +9,13 @@
     <h1>{{ hello }}</h1>
 
     <a href="/postform/">Submit a boast or a roast</a>
+    <div>
+      {% for post in post_list %}
 
-    <!--
+      <h3>{{post.content}}</h3>
+      <h2>{{ post.post_time}}</h2>
 
-    
-    Will need: list of posts sorted by date
-
-    Two buttons for each post -- one for up and one for down
-
-
-    Later: ability to sort by votes instead of by date (2 pts)
-
-
-
---></body>
+      {% endfor %}
+    </div>
+  </body>
 </html>
