@@ -17,15 +17,18 @@
       <a href="/postform/">Submit a boast or a roast</a>
     </div>
     <div>
+      <a href="/">See all Ghost Posts</a>
+    </div>
+    <div>
       {% for post in post_list %}
 
       <h3>{{post.content}}</h3>
-      <h4>{{ post.post_time}}</h4>
+      <h6>{{ post.post_time}}</h6>
       <div>
         {% if post.boast_or_roast %}
-        <h6>Boast</h6>
+        <h4>Boast</h4>
         {% elif not post.boast_or_roast %}
-        <h6>Roast</h6>
+        <h4>Roast</h4>
         {% endif %}
       </div>
 
@@ -37,7 +40,10 @@
           <a href="/downvote/{{ post.id }}/">Down: {{ post.down_votes }}</a>
         </button>
       </div>
-
+      <div>
+        <h6>Total votes: {{post.votes}}</h6>
+      </div>
+      <hr />
       {% endfor %}
     </div>
   </body>

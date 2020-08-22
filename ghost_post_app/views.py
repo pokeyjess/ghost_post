@@ -19,11 +19,11 @@ def post_form_view(request):
 
 def boast(request):
     post_list = Posts.objects.filter(boast_or_roast=True).order_by('-post_time')
-    return render(request, "boast.html", {"post_list": post_list})
+    return render(request, "index.html", {"post_list": post_list})
 
 def roast(request):
     post_list = Posts.objects.filter(boast_or_roast=False).order_by('-post_time')
-    return render(request, "roast.html", {"post_list": post_list})
+    return render(request, "index.html", {"post_list": post_list})
 
 def up_vote(request, post_id):
     vote = Posts.objects.get(id=post_id)

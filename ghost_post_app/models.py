@@ -15,7 +15,7 @@ class Posts(models.Model):
         else:
             return False
 
-    # def votes(self):
-        # return self.up_votes - self.down_votes
+    def votes(self):
+        return self.up_votes - self.down_votes
 
     
