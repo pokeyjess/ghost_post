@@ -29,6 +29,15 @@
         {% endif %}
       </div>
 
+      <div>
+        <button>
+          <a href="/upvote/{{ post.id }}/">Up: {{ post.up_votes }}</a>
+        </button>
+        <button>
+          <a href="/downvote/{{ post.id }}/">Down: {{ post.down_votes }}</a>
+        </button>
+      </div>
+
       {% endfor %}
     </div>
   </body>

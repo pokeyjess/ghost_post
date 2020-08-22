@@ -24,3 +24,16 @@ def boast(request):
 def roast(request):
     post_list = Posts.objects.filter(boast_or_roast=False).order_by('-post_time')
     return render(request, "roast.html", {"post_list": post_list})
+
+def up_vote(request, post_id):
+    vote = Posts.objects.get(id=post_id)
+    vote.up_votes += 1
+    vote.save()
+    return HttpResponseRedirect(reverse('homepage')) 
+
+def down_vote(request, post_id):
+    vote = Posts.objects.get(id=post_id)
+    vote.down_votes += 1
+    vote.save()
+    return HttpResponseRedirect(reverse('homepage'))
+
