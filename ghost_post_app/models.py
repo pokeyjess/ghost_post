@@ -6,6 +6,7 @@ class Posts(models.Model):
     content = models.CharField(max_length=280)
     up_votes = models.IntegerField()
     down_votes = models.IntegerField()
+    total_votes = models.IntegerField(default=0)
     post_time = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
@@ -14,8 +15,5 @@ class Posts(models.Model):
             return True
         else:
             return False
-
-    def votes(self):
-        return self.up_votes - self.down_votes
 
     

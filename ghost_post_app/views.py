@@ -27,13 +27,17 @@ def roast(request):
 
 def up_vote(request, post_id):
     vote = Posts.objects.get(id=post_id)
-    vote.up_votes += 1
+    vote.total_votes += 1
     vote.save()
     return HttpResponseRedirect(reverse('homepage')) 
 
 def down_vote(request, post_id):
     vote = Posts.objects.get(id=post_id)
-    vote.down_votes += 1
+    vote.total_votes -= 1
     vote.save()
     return HttpResponseRedirect(reverse('homepage'))
+
+def votes(request):
+    post_list = Posts.objects.all().order_by('-total_votes')
+    return render(request, "index.html", {"post_list": post_list})
 

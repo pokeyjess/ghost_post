@@ -14,10 +14,13 @@
       <a href="/roast/">See all the Roasts!</a>
     </div>
     <div>
-      <a href="/postform/">Submit a boast or a roast</a>
+      <a href="/votes/">See in order of highest votes to lowest</a>
     </div>
     <div>
       <a href="/">See all Ghost Posts</a>
+    </div>
+    <div>
+      <a href="/postform/">Submit a boast or a roast</a>
     </div>
     <div>
       {% for post in post_list %}
@@ -34,14 +37,14 @@
 
       <div>
         <button>
-          <a href="/upvote/{{ post.id }}/">Up: {{ post.up_votes }}</a>
+          <a href="/upvote/{{ post.id }}/">Up</a>
         </button>
         <button>
-          <a href="/downvote/{{ post.id }}/">Down: {{ post.down_votes }}</a>
+          <a href="/downvote/{{ post.id }}/">Down</a>
         </button>
       </div>
       <div>
-        <h6>Total votes: {{post.votes}}</h6>
+        <h6>Total votes: {{post.total_votes}}</h6>
       </div>
       <hr />
       {% endfor %}
