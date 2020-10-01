@@ -17,3 +17,5 @@ class Posts(models.Model):
             return False
 
     
+
+    
